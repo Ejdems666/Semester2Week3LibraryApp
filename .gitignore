@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/
+Semester2Week3LibraryApp.iml
+out/
+src/main/resources/
+src/test/
+target/
