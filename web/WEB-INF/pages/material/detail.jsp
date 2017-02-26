@@ -1,4 +1,9 @@
-<%@ page import="model.entity.Material" %><% Material material = ((Material) request.getAttribute("material")); %>
+<%@ page import="model.entity.Material" %>
+<%@ page import="model.entity.Reservation" %>
+<%@ page import="model.entity.User" %>
+<% Material material = ((Material) request.getAttribute("material")); %>
+<% Reservation reservation = ((Reservation) session.getAttribute("reservation")); %>
+<% User user = ((User) session.getAttribute("user")); %>
 <h1>Detail of <%= material.getTitle() %></h1>
 <table class="table">
     <tr>
@@ -18,3 +23,12 @@
         <td><%= material.getMaterialType().getType() %></td>
     </tr>
 </table>
+<% if (user != null){ %>
+    <% if (reservation == null){ %>
+        <form action="${root}material/reserve?id=<%= material.getId() %>">
+            <button>reserve</button>
+        </form>
+    <% } else {  %>
+        <strong>Reserved until <%=reservation.getReservedUntil()%></strong>
+    <% }  %>
+<% }  %>

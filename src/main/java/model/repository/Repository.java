@@ -3,7 +3,7 @@ package model.repository;
 import hyggedb.select.Condition;
 import model.entity.Entity;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by adam on 26/02/2017.
@@ -11,9 +11,9 @@ import java.util.Collection;
 public interface Repository<K extends Entity> {
     public K getById(int id);
 
-    public Collection<K> findAll();
+    public List<K> findAll();
 
-    public Collection<K> findBy(Condition condition);
+    public List<K> findBy(Condition condition);
 
     public void persist(K entity);
 

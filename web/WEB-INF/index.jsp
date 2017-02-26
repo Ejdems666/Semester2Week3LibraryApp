@@ -1,4 +1,7 @@
+<%@ page import="controller.BaseController" %>
+<%@ page import="model.entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% User user = ((User) session.getAttribute("user")); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +41,11 @@
                 <li>
                     <a href="${root}sign/up">Create new account</a>
                 </li>
+                <% if (user != null) {%>
+                    <li>
+                        <a href="${root}sign/out">Sign out <%= user.getName() %> <%= user.getSurname() %></a>
+                    </li>
+                <% } %>
             </ul>
         </div>
     </div>

@@ -8,7 +8,7 @@ import model.entity.MaterialType;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by adam on 26/02/2017.
@@ -50,13 +50,13 @@ public class MaterialTypeRepository implements Repository<MaterialType> {
         return type;
     }
 
-    public Collection<MaterialType> findAll() {
+    public List<MaterialType> findAll() {
         Selection selection = new Selection("material_type");
         ResultSet rs = db.getSelectionExecutor().getResult(selection);
         return mapTypes(rs);
     }
-    private Collection<MaterialType> mapTypes(ResultSet rs) {
-        Collection<MaterialType> types = new ArrayList<>();
+    private List<MaterialType> mapTypes(ResultSet rs) {
+        List<MaterialType> types = new ArrayList<>();
         MaterialType type = mapType(rs);
         while (type != null) {
             types.add(type);
@@ -65,7 +65,7 @@ public class MaterialTypeRepository implements Repository<MaterialType> {
         return types;
     }
 
-    public Collection<MaterialType> findBy(Condition condition) {
+    public List<MaterialType> findBy(Condition condition) {
         return null;
     }
 

@@ -9,7 +9,7 @@ import model.entity.MaterialType;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by adam on 26/02/2017.
@@ -57,14 +57,14 @@ public class MaterialRepository implements Repository<Material> {
         return material;
     }
 
-    public Collection<Material> findAll() {
+    public List<Material> findAll() {
         Selection selection = new Selection("material");
         ResultSet rs = db.getSelectionExecutor().getResult(selection);
         return mapMaterials(rs);
     }
 
-    private Collection<Material> mapMaterials(ResultSet rs) {
-        Collection<Material> materials = new ArrayList<Material>();
+    private List<Material> mapMaterials(ResultSet rs) {
+        List<Material> materials = new ArrayList<Material>();
         Material material = mapMaterial(rs);
         while (material != null) {
             materials.add(material);
@@ -73,7 +73,7 @@ public class MaterialRepository implements Repository<Material> {
         return materials;
     }
 
-    public Collection<Material> findBy(Condition condition) {
+    public List<Material> findBy(Condition condition) {
         return null;
     }
 
