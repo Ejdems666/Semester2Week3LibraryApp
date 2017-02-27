@@ -2,7 +2,7 @@
 <%@ page import="model.entity.Reservation" %>
 <%@ page import="model.entity.User" %>
 <% Material material = ((Material) request.getAttribute("material")); %>
-<% Reservation reservation = ((Reservation) session.getAttribute("reservation")); %>
+<% Reservation reservation = ((Reservation) request.getAttribute("reservation")); %>
 <% User user = ((User) session.getAttribute("user")); %>
 <h1>Detail of <%= material.getTitle() %></h1>
 <table class="table">
@@ -25,7 +25,8 @@
 </table>
 <% if (user != null){ %>
     <% if (reservation == null){ %>
-        <form action="${root}material/reserve?id=<%= material.getId() %>">
+        <form method="post" action="${root}material/reserve">
+            <input type="hidden" value="<%= material.getId() %>" name="id">
             <button>reserve</button>
         </form>
     <% } else {  %>

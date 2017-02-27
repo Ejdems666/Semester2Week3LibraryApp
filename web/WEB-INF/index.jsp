@@ -1,4 +1,3 @@
-<%@ page import="controller.BaseController" %>
 <%@ page import="model.entity.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% User user = ((User) session.getAttribute("user")); %>
@@ -18,7 +17,8 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <button materialType="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button materialType="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -35,16 +35,18 @@
                 <li>
                     <a href="${root}material">List of books</a>
                 </li>
+                <% if (user == null) {%>
                 <li>
                     <a href="${root}sign/in">Sign in</a>
                 </li>
                 <li>
                     <a href="${root}sign/up">Create new account</a>
                 </li>
-                <% if (user != null) {%>
-                    <li>
-                        <a href="${root}sign/out">Sign out <%= user.getName() %> <%= user.getSurname() %></a>
-                    </li>
+                <% } else {%>
+                <li>
+                    <a href="${root}sign/out">Sign out <%= user.getName() %> <%= user.getSurname() %>
+                    </a>
+                </li>
                 <% } %>
             </ul>
         </div>

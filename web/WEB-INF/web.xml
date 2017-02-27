@@ -11,20 +11,4 @@
         <filter-name>Filter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <!--<servlet>-->
-        <!--<servlet-name>Index</servlet-name>-->
-        <!--<servlet-class>server.Index</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>Index</servlet-name>-->
-        <!--<url-pattern>/index.jsp</url-pattern>-->
-    <!--</servlet-mapping>-->
-    <!--<servlet>-->
-        <!--<servlet-name>Servlet</servlet-name>-->
-        <!--<servlet-class>server.Servlet</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>Servlet</servlet-name>-->
-        <!--<url-pattern>/index.jsp</url-pattern>-->
-    <!--</servlet-mapping>-->
 </web-app>

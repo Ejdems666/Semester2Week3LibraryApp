@@ -89,7 +89,7 @@ public class ReservationRepository implements Repository<Reservation> {
         Object[] objects;
         String sql;
         for (Reservation reservation : persistedEntities) {
-            sql = "`reservation`(`user_id`, `reserved_at`, `reserved_until`, `status`, `material_id`) VALUES (?,?,?,?,?)";
+            sql = "INSERT INTO `reservation`(`user_id`, `reserved_at`, `reserved_until`, `status`, `material_id`) VALUES (?,?,?,?,?)";
             objects = new Object[5];
             objects[0] = reservation.getUser();
             objects[1] = reservation.getReservedAt();

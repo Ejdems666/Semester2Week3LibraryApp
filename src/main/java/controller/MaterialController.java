@@ -104,7 +104,7 @@ public class MaterialController extends BaseController {
                 reservation.setReservedAt(date);
                 reservation.setReservedUntil(date);
                 reservation.setUser(user.getId());
-                reservation.setUser(materialId);
+                reservation.setMaterial(materialId);
                 reservationRepository.persistAndFlush(reservation);
                 setAlert("success","material-reserved");
             }
