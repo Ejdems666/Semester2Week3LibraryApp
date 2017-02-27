@@ -59,7 +59,7 @@ public class MaterialController extends BaseController {
     private void showDetail(Integer materialId) {
         if (isLoggedIn()) {
             Repository<Reservation> reservationRepository = ReservationRepository.getInstance(db);
-            Condition condition = new Condition("", "reservation", "user_id=?", user.getId()).and("material_id=?", Reservation.NOT_RETURNED).and("status=?", Reservation.NOT_RETURNED);
+            Condition condition = new Condition("", "reservation", "user_id=?", user.getId()).and("material_id=?", materialId).and("status=?", Reservation.NOT_RETURNED);
             List<Reservation> reservations = reservationRepository.findBy(condition);
             if (!reservations.isEmpty()) {
                 request.setAttribute("reservation",reservations.get(reservations.size()-1));
