@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
  * Created by adam on 26/02/2017.
  */
 public abstract class BaseController extends Controller {
+    protected final String ROOT = "/";
+    protected final String ASSETS = "/assets/";
     protected User user;
 
     public BaseController(HttpServletRequest request, HttpServletResponse response) {
@@ -37,5 +39,12 @@ public abstract class BaseController extends Controller {
         }
         alert += "<div class='alert alert-"+type+"' role='alert'>"+message+"</div>";
         request.setAttribute("alert", alert);
+    }
+
+    @Override
+    protected void renderTemplate(String template) {
+        request.setAttribute("root", ROOT);
+        request.setAttribute("assets", ASSETS);
+        super.renderTemplate(template);
     }
 }
